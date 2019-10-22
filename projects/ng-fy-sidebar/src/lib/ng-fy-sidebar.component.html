@@ -56,6 +56,6 @@
   </div>
 </div>
 <div class="mobileSidebarBack" *ngIf="windowWidth <= 1000 && !data.justTopBar" (click)="toggleMenuBack()" [ngClass]="{'open':  !data.justTopBar && ((data.sidebarClosed != undefined && !data.sidebarClosed) || (data.mobileRightSidebarClosed != undefined && !data.mobileRightSidebarClosed))}"></div>
-<div class="main-content" [ngClass]="{'wide': windowWidth <= 1000 || data.sidebarClosed}">
+<div class="main-content" [ngClass]="{'wide': windowWidth <= 1000 || (data.sidebarClosed || data.sidebarData == undefined || data.sidebarData.length == 0)}">
   <ng-content></ng-content>
 </div>
