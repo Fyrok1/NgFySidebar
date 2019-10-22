@@ -34,19 +34,15 @@
     </div>
   </div>
   <div class="mobile-topbar" *ngIf="windowWidth <= 1000 && ((data.topbarDataRight != undefined && data.topbarDataRight.length > 0) || (data.topbarDataLeft != undefined && data.topbarDataLeft.length > 0))">
-    <div class="item left" (click)="toggleMenu()" ngFyRipple>
-      <i class="material-icons">menu</i>
-    </div>
+    <div class="item left" (click)="toggleMenu()" [ngClass]="{'hidden': data.justTopBar || data.sidebarData.length == 0}" ngFyRipple [innerHtml]="data.mobileTopBarLeftIcon ? data.mobileTopBarLeftIcon : '<i class=\'material-icons\'>menu</i>'"></div>
     <div class="item center" *ngIf="data.mobileLogo != undefined || data.logo != null">
       <img [attr.src]="data.logo" *ngIf="data.mobileLogo == undefined" alt="image">      
       <img [attr.src]="data.mobileLogo" *ngIf="data.mobileLogo != undefined" alt="image">      
     </div>
-    <div class="item right" *ngIf="data.mobileRightSidebar != undefined" (click)="toggleRightMenu()" ngFyRipple>
-      <i class="material-icons">person</i>
-    </div>
+    <div class="item right" [ngClass]="{'hidden': !(!data.justTopBar && data.mobileRightSidebar != undefined && data.mobileRightSidebar.length > 0)}" (click)="toggleRightMenu()" ngFyRipple [innerHtml]="data.mobileTopBarRightIcon ? data.mobileTopBarRightIcon : '<i class=\'material-icons\'>person</i>'"></div>
   </div>
 </div>
-<div class="ng-fy-sidebar" [ngClass]="{'closed': data.sidebarClosed == true}">
+<div class="ng-fy-sidebar" [ngClass]="{'closed': data.justTopBar || data.sidebarClosed}">
   <div class="ng-fy-logobar">
     <img *ngIf="data.logo != undefined && data.logo != null" [attr.src]="data.logo" alt="image">
   </div>
@@ -59,7 +55,7 @@
     <ng-fy-sidebar-item [sidebarId]="2" [data]="data.mobileRightSidebar"></ng-fy-sidebar-item>
   </div>
 </div>
-<div class="mobileSidebarBack" *ngIf="windowWidth <= 1000" (click)="toggleMenuBack()" [ngClass]="{'open': (data.sidebarClosed != undefined && !data.sidebarClosed) || (data.mobileRightSidebarClosed != undefined && !data.mobileRightSidebarClosed)}"></div>
+<div class="mobileSidebarBack" *ngIf="windowWidth <= 1000 && !data.justTopBar" (click)="toggleMenuBack()" [ngClass]="{'open':  !data.justTopBar && ((data.sidebarClosed != undefined && !data.sidebarClosed) || (data.mobileRightSidebarClosed != undefined && !data.mobileRightSidebarClosed))}"></div>
 <div class="main-content" [ngClass]="{'wide': windowWidth <= 1000 || data.sidebarClosed}">
   <ng-content></ng-content>
 </div>

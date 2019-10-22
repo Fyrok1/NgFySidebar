@@ -143,6 +143,10 @@
           max-width: calc(100% - 20px);
         }
       }
+      &.hidden{
+        opacity: 0;
+        pointer-events: none;
+      }
       i{
         font-size: 34px;
       }

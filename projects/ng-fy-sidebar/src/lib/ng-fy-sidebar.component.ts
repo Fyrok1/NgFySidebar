@@ -135,7 +135,10 @@ export interface NgFySidebarData {
   sidebarData: NgFySidebarItemData[],
   sidebarClosed?: boolean,
   mobileRightSidebarClosed?: boolean,
-  mobileRightSidebar:NgFySidebarItemData[]
+  mobileRightSidebar:NgFySidebarItemData[],
+  justTopBar?:boolean,
+  mobileTopBarLeftIcon?:string,
+  mobileTopBarRightIcon?:string
 }
 
 export interface NgFySidebarTopbarItemData {
