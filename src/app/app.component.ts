@@ -10,6 +10,7 @@ export class AppComponent {
   sidebarData: NgFySidebarData = {
     logo: "https://www.biryudumkitap.com/img/logo-alt.png",
     mobileLogo:"https://www.biryudumkitap.com/img/logo-default.png",
+    sidebarClosed:true,
     sidebarData: [
       {
         title: "test 1",

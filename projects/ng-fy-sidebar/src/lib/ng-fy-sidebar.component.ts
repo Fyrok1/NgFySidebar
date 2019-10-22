@@ -41,7 +41,7 @@ export class NgFySidebarComponent implements OnInit {
     this.checkWidth(this.windowWidth,oldWidth);
   }
 
-  @Input() data: NgFySidebarData = null;
+  @Input() data: NgFySidebarData;
   topbarChildClickActive: boolean = true;
   windowWidth: number = window.innerWidth;
 
@@ -86,10 +86,10 @@ export class NgFySidebarComponent implements OnInit {
     }
   }
 
-  checkWidth(width:number,oldWidth:number=-1){
-    if (oldWidth == -1) {
+  checkWidth(width:number,oldWidth:number=-1){    
+    if (oldWidth == -1) {      
       if(width>1000){
-        this.data.sidebarClosed = false;
+        this.data.sidebarClosed = this.data.sidebarClosed;
       }else{
         this.data.sidebarClosed = true;
       }

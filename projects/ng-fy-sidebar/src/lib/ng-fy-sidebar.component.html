@@ -46,9 +46,10 @@
     </div>
   </div>
 </div>
-<div class="ng-fy-sidebar" [ngClass]="{'closed': data.sidebarClosed}">
+<div class="ng-fy-sidebar" [ngClass]="{'closed': data.sidebarClosed == true}">
   <div class="ng-fy-logobar">
     <img *ngIf="data.logo != undefined && data.logo != null" [attr.src]="data.logo" alt="image">
+    {{data.sidebarClosed}}
   </div>
   <div class="ng-fy-sidebar-content">
     <ng-fy-sidebar-item [sidebarId]="1" [data]="data.sidebarData"></ng-fy-sidebar-item>
