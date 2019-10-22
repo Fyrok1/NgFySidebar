@@ -1,4 +1,4 @@
-<div class="ng-fy-topbar" [ngClass]="{'wide': windowWidth <= 1000 || data.sidebarClosed}">
+<div class="ng-fy-topbar" [ngClass]="{'wide': windowWidth <= 1000 || (data.sidebarClosed || data.sidebarData == undefined || data.sidebarData.length == 0)}">
   <div class="ng-fy-topbar-item left" *ngIf="data.topbarDataLeft != undefined && data.topbarDataLeft.length > 0 && windowWidth > 1000">
     <div class="item unselectable" *ngFor="let item of data.topbarDataLeft" (clickOutside)="topbarOutclick(item)">
       <div class="content" ngFyRipple (click)="topbarClick(item)">
@@ -42,7 +42,7 @@
     <div class="item right" [ngClass]="{'hidden': !(!data.justTopBar && data.mobileRightSidebar != undefined && data.mobileRightSidebar.length > 0)}" (click)="toggleRightMenu()" ngFyRipple [innerHtml]="data.mobileTopBarRightIcon ? data.mobileTopBarRightIcon : '<i class=\'material-icons\'>person</i>'"></div>
   </div>
 </div>
-<div class="ng-fy-sidebar" [ngClass]="{'closed': data.justTopBar || data.sidebarClosed}">
+<div class="ng-fy-sidebar" [ngClass]="{'closed': data.sidebarData.length == 0 || data.sidebarData == undefined || data.justTopBar || data.sidebarClosed}">
   <div class="ng-fy-logobar">
     <img *ngIf="data.logo != undefined && data.logo != null" [attr.src]="data.logo" alt="image">
   </div>
