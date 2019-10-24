@@ -226,15 +226,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-*[ngfyripple],
-:host ::ng-deep *[ngfyripple] {
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  * {
-    pointer-events: none;
-  }
-}
+
 .mobileSidebarBack{
   z-index: 98;
   background-color: rgba(0, 0, 0, 0.5);  
@@ -251,30 +243,6 @@
   &.open{
     opacity: 1;
     pointer-events: all;
-  }
-}
-:host ::ng-deep *[ngfyripple] .ripple-div {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  animation: ngFyRipple 0.75s ease-out forwards;
-}
-@keyframes ngFyRipple {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(0.1);
-  }
-  60% {
-    opacity: 0.5;
-  }
-  95% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1);
   }
 }
 
